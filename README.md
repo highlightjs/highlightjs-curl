@@ -8,39 +8,25 @@ See https://curl.haxx.se/docs/manpage.html or in your shell use `curl --help` fo
 
 ## Usage
 
-Include the `highlight.js` script package in your webpage or node app, load this module and register it with `hljs`. Follow instructions at [highlightjs](https://highlightjs.org/) to learn how to include the library and CSS.
+Include the `highlight.js` script package in your webpage or node app, load this module and register it with `hljs`. Follow instructions at [highlightjs](https://highlightjs.org/) to learn how to include the library and CSS. See [Getting started](https://github.com/highlightjs/highlight.js#getting-started) for different integration and module options.
 
-If you're not using a build system and just want to embed this in your webpage:
+This cURL module is not part of the standard distribution and must be loaded separately. The module name is `curl.min.js` or `curl`, depending on how you reference the module from your bundler code.
 
-```html
-<link rel="stylesheet" href="/path/to/highlight-styles/default.css">
-<script type="text/javascript" src="/path/to/highlight.min.js"></script>
-<script type="text/javascript" src="/path/to/highlightjs-curl.min.js"></script>
-<script type="text/javascript">
-    hljs.registerLanguage('curl', window.hljsDefineCurl);
-    hljs.initHighlightingOnLoad();
-</script>
-```
-
-If you're using webpack / rollup / browserify / node:
-
-```javascript
-var hljs = require('highlightjs');
-var hljsDefineCUrl = require('highlightjs-curl');
-
-hljsDefineCurl(hljs);
-hljs.initHighlightingOnLoad();
-```
-
-Mark the code you want to highlight with the curl class:
+Once loaded, mark the code you want to highlight with the `curl` class or `language-curl`:
 
 ```html
 <pre><code class="curl">...</code></pre>
 ```
 
+or
+
+```html
+<pre><code class="language-curl">...</code></pre>
+```
+
 ## Building
 
-To build the distribution, follow instructions at https://github.com/highlightjs/highlight.js/blob/master/extra/3RD_PARTY_QUICK_START.md
+To build the distribution, follow instructions at [Highligh.js 3rd Party Quick Start](https://github.com/highlightjs/highlight.js/blob/master/extra/3RD_PARTY_QUICK_START.md).
 
 ## Contributing
 
@@ -50,11 +36,15 @@ To build the distribution, follow instructions at https://github.com/highlightjs
 npm install
 ```
 
-Update `curl.js`. Be sure to update the test data `input.txt` to include a test for your changes, or create a new test in `curl-spec.js`. The tests must pass!
+Update `src/language/curl.js`. Be sure to update the test data `spec/input.txt` to include a test for your changes, or create a new test in `spec/curl-spec.js`. Run the local test with
 
 ```bash
 npm test
 ```
+
+The tests must pass!
+
+If you change the test data be sure to also sync the update with the `test/markup` and `test/detect` files. These are used by the highlight.js 3rd party grammar build and distribution process.
 
 Issue a pull request.
 
