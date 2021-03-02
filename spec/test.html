@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Test highlightjs curl grammar</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.6.0/styles/default.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.6.0/highlight.min.js"></script>
+  <script src="../dist/curl.min.js"></script>
+</head>
+<body>
+<h1>cURL highlighting</h1>
+<p>Test highlightjs cURL grammar in browser:</p>
+<div>
+  <h3>Code block</h3>
+  <pre><code class="language-curl">
+    curl
+      -X GET
+      -u ftpuser:ftppass
+      --proxy-header
+      --range 3
+      -H "Auth: bearer 1234"
+      --header "Accept: ascii"
+      -O ftp://any.domain.com/public/xss.html
+  </code></pre>
+</div>
+<div>
+  <h3>Plain text</h3>
+  <pre><code class="plaintext">
+    curl
+      -X GET
+      -u ftpuser:ftppass
+      --proxy-header
+      --range 3
+      -H "Auth: bearer 1234"
+      --header "Accept: ascii"
+      -O ftp://any.domain.com/public/xss.html
+  </code></pre>
+</div>
+<script type="text/javascript">
+  hljs.highlightAll();
+</script>
+</body>
+</html>
+
