@@ -2,6 +2,8 @@
 
 Support for using `highlight.js` to syntax highlight cURL commands. See https://highlightjs.org/ for more information about highlight.js.
 
+Updated to highlight version 10.6.
+
 See https://curl.haxx.se/docs/manpage.html or in your shell use `curl --help` for more information about cURL.
 
 ## Usage
@@ -11,8 +13,9 @@ Include the `highlight.js` script package in your webpage or node app, load this
 If you're not using a build system and just want to embed this in your webpage:
 
 ```html
-<script type="text/javascript" src="/path/to/highlight.pack.js"></script>
-<script type="text/javascript" src="/path/to/highlightjs-curl/curl.js"></script>
+<link rel="stylesheet" href="/path/to/highlight-styles/default.css">
+<script type="text/javascript" src="/path/to/highlight.min.js"></script>
+<script type="text/javascript" src="/path/to/highlightjs-curl.min.js"></script>
 <script type="text/javascript">
     hljs.registerLanguage('curl', window.hljsDefineCurl);
     hljs.initHighlightingOnLoad();
@@ -38,9 +41,13 @@ Mark the code you want to highlight with the curl class:
 or use JavaScript to dynamically highlight text:
 
 ```javascript
-hljs.registerLanguage('curl', window.hljsDefineArcade);
+hljs.registerLanguage('curl', window.hljsDefineCurl);
 var highlighted = hljs.highlightAuto(text, ["curl"]);
 ```
+
+## Building
+
+To build the distribution, follow instructions at https://github.com/highlightjs/highlight.js/blob/master/extra/3RD_PARTY_QUICK_START.md
 
 ## Contributing
 

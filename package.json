@@ -1,19 +1,18 @@
 {
   "name": "highlightjs-curl",
-  "version": "1.0.1",
+  "version": "1.2.0",
   "author": "John Foster",
   "description": "Support for using highlight.js to syntax highlight cURL commands.",
-  "main": "curl.js",
+  "main": "src/language/curl.js",
   "scripts": {
-    "test": "jasmine",
-    "build": "terser curl.js -c -o ./dist/curl.min.js"
+    "test": "jasmine"
   },
   "files": [
-    "curl.js"
+    "src/language/curl.js"
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/jf990/highlightjs-curl.git"
+    "url": "https://github.com/highlightjs/highlightjs-curl.git"
   },
   "keywords": [
     "curl",
@@ -25,11 +24,11 @@
   ],
   "license": "Apache-2.0",
   "bugs": {
-    "url": "https://github.com/jf990/highlightjs-curl/issues"
+    "url": "https://github.com/highlightjs/highlightjs-curl/issues"
   },
-  "homepage": "https://github.com/jf990/highlightjs-curl#readme",
+  "homepage": "https://github.com/highlightjs/highlightjs-curl#readme",
   "devDependencies": {
-    "highlight.js": "^9.15.10",
-    "jasmine": "^3.4.0"
+    "highlight.js": "^10.6.0",
+    "jasmine": "^3.6.4"
   }
 }
