@@ -38,13 +38,6 @@ Mark the code you want to highlight with the curl class:
 <pre><code class="curl">...</code></pre>
 ```
 
-or use JavaScript to dynamically highlight text:
-
-```javascript
-hljs.registerLanguage('curl', window.hljsDefineCurl);
-var highlighted = hljs.highlightAuto(text, ["curl"]);
-```
-
 ## Building
 
 To build the distribution, follow instructions at https://github.com/highlightjs/highlight.js/blob/master/extra/3RD_PARTY_QUICK_START.md
