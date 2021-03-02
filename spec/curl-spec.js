@@ -1,5 +1,5 @@
-const hljs = require("highlight.js/lib/highlight");
-const { definer: curl } = require("../curl");
+const hljs = require("highlight.js/lib/core");
+const curl = require("../src/curl");
 const fs = require("fs");
 const path = require("path");
 hljs.registerLanguage("curl", curl);
@@ -13,8 +13,19 @@ describe("respec-highlight bundle", () => {
   });
 
   it("highlights curl", () => {
+    const input = "cURL -X GET \"https://service.example.com/v.2/endpoint?q=test\""
+    const expected = "cURL <span class=\"hljs-literal\">-X</span> GET <span class=\"hljs-string\">&quot;https://service.example.com/v.2/endpoint?q=test&quot;</span>"
+    // highlight the test string
+    const { value: result, language } = hljs.highlightAuto(input, [
+      "curl",
+    ]);
+    expect(language).toBe("curl");
+    expect(result).toBe(expected);
+  });
 
-    // read the test data
+  it("highlights curl", () => {
+
+    // read the test data from a file
     const input = fs.readFileSync(
       path.resolve(__dirname, "./input.txt"),
       "utf-8"
@@ -25,6 +36,7 @@ describe("respec-highlight bundle", () => {
       "curl",
     ]);
     expect(language).toBe("curl");
+    // console.log(result);
 
     // verify the highlighting is what is expected
     const expected = fs.readFileSync(

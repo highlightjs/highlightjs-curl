@@ -4,9 +4,8 @@
  Author: John Foster <jfoster@esri.com>
  Description: Syntax highlighting for cURL commands.
 */
-var module = module ? module : {}; // shim for browser use
 
-function hljsDefineCurl(hljs) {
+module.exports = function (hljs) {
   var KEYWORDS = {
     keyword:
       'curl'
@@ -64,9 +63,3 @@ function hljsDefineCurl(hljs) {
     ]
   };
 }
-
-module.exports = function(hljs) {
-  hljs.registerLanguage("curl", hljsDefineCurl);
-};
-  
-module.exports.definer = hljsDefineCurl;
