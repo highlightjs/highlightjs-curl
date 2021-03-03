@@ -3,7 +3,7 @@
   "version": "1.2.0",
   "author": "John Foster",
   "description": "Support for using highlight.js to syntax highlight cURL commands.",
-  "main": "src/language/curl.js",
+  "main": "dist/curl.min.js",
   "scripts": {
     "test": "jasmine"
   },
