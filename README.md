@@ -1,10 +1,6 @@
 # highlightjs-curl
 
-Support for using `highlight.js` to syntax highlight cURL commands. See https://highlightjs.org/ for more information about highlight.js.
-
-Updated to highlight version 10.6.
-
-See https://curl.haxx.se/docs/manpage.html or in your shell use `curl --help` for more information about cURL.
+Support for using `highlight.js` to syntax highlight cURL commands. See https://highlightjs.org/ for more information about highlight.js. See https://curl.haxx.se/docs/manpage.html or in your shell use `curl --help` for more information about cURL.
 
 ## Usage
 
@@ -26,7 +22,7 @@ or
 
 ## Building
 
-To build the distribution, follow instructions at [Highligh.js 3rd Party Quick Start](https://github.com/highlightjs/highlight.js/blob/master/extra/3RD_PARTY_QUICK_START.md).
+To build the distribution, follow instructions at [Highlight.js 3rd Party Quick Start](https://github.com/highlightjs/highlight.js/blob/master/extra/3RD_PARTY_QUICK_START.md).
 
 ## Contributing
 
@@ -44,7 +40,7 @@ npm test
 
 The tests must pass!
 
-If you change the test data be sure to also sync the update with the `test/markup` and `test/detect` files. These are used by the highlight.js 3rd party grammar build and distribution process.
+If you change the test data be sure to also sync the update with the `test/markup` and `test/detect` files. These are used by the highlight.js 3rd party language build and distribution process.
 
 Issue a pull request.
 
