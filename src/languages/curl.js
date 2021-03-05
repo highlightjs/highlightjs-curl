@@ -6,10 +6,6 @@
 */
 
 module.exports = function (hljs) {
-  var KEYWORDS = {
-    keyword:
-      'curl'
-  };
   var QUOTE_STRING = {
     className: 'string',
     begin: /"/, end: /"/,
@@ -21,6 +17,20 @@ module.exports = function (hljs) {
         contains: [hljs.BACKSLASH_ESCAPE]
       }
     ]
+  };
+  var OPTION_REQUEST = {
+    className: 'literal',
+    begin: /(--request|-X)\s/,
+    contains: [
+      {
+        className: 'symbol',
+        begin: /(get|post|delete|options|head|put|patch|trace|connect)/,
+        end: /\s/,
+        returnEnd: true
+      }
+    ],
+    returnEnd: true,
+    relevance: 10
   };
   var OPTION = {
     className: 'literal',
@@ -49,9 +59,12 @@ module.exports = function (hljs) {
   };
   
   return {
-    aliases: ['curl'],
-    keywords: KEYWORDS,
+    name: "curl",
+    aliases: ["curl"],
+    keywords: "curl",
+    case_insensitive: true,
     contains: [
+      OPTION_REQUEST,
       OPTION,
       OPTION_SINGLE,
       QUOTE_STRING,

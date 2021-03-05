@@ -22,6 +22,9 @@
       --header "Accept: ascii"
       -O ftp://any.domain.com/public/xss.html
   </code></pre>
+  <pre><code class="language-curl">
+    curl --request post -u ftpuser:ftppass --proxy-header --range 3 -H "Auth: bearer 1234" --header "Accept: ascii" -O ftp://any.domain.com/public/xss.html https://example.com/v2/endpoint.php
+  </code></pre>
 </div>
 <div>
   <h3>Plain text</h3>

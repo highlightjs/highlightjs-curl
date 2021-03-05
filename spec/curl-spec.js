@@ -1,42 +1,42 @@
 const hljs = require("highlight.js/lib/core");
-const curl = require("../src/language/curl");
+const curl = require("../src/languages/curl");
 const fs = require("fs");
 const path = require("path");
-hljs.registerLanguage("curl", curl);
+const languageName = "curl";
+hljs.registerLanguage(languageName, curl);
 
 describe("respec-highlight bundle", () => {
-  it("defines curl", () => {
+  it("defines " + languageName, () => {
 
     // highlight has curl defined
-    const curl = hljs.getLanguage("curl");
-    expect(curl).toBeDefined();
+    const curlDef = hljs.getLanguage(languageName);
+    expect(curlDef).toBeDefined();
   });
 
-  it("highlights curl", () => {
+  it("highlights " + languageName, () => {
     const input = "cURL -X GET \"https://service.example.com/v.2/endpoint?q=test\""
-    const expected = "cURL <span class=\"hljs-literal\">-X</span> GET <span class=\"hljs-string\">&quot;https://service.example.com/v.2/endpoint?q=test&quot;</span>"
+    const expected = "<span class=\"hljs-keyword\">cURL</span> <span class=\"hljs-literal\">-X <span class=\"hljs-symbol\">GET</span></span> <span class=\"hljs-string\">&quot;https://service.example.com/v.2/endpoint?q=test&quot;</span>"
     // highlight the test string
     const { value: result, language } = hljs.highlightAuto(input, [
-      "curl",
+      languageName,
     ]);
-    expect(language).toBe("curl");
+    expect(language).toBe(languageName);
     expect(result).toBe(expected);
   });
 
-  it("highlights curl", () => {
+  it("highlights " + languageName, () => {
 
     // read the test data from a file
-    const input = fs.readFileSync(
-      path.resolve(__dirname, "./input.txt"),
+    const sample = fs.readFileSync(
+      path.resolve(__dirname, "./sample.txt"),
       "utf-8"
     );
 
     // highlight the test data
-    const { value: result, language } = hljs.highlightAuto(input, [
-      "curl",
+    const { value: result, language } = hljs.highlightAuto(sample, [
+      languageName,
     ]);
-    expect(language).toBe("curl");
-    // console.log(result);
+    expect(language).toBe(languageName);
 
     // verify the highlighting is what is expected
     const expected = fs.readFileSync(

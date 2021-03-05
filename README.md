@@ -4,7 +4,7 @@ Support for using `highlight.js` to syntax highlight cURL commands. See https://
 
 ## Usage
 
-Include the `highlight.js` script package in your webpage or node app, load this module and register it with `hljs`. Follow instructions at [highlightjs](https://highlightjs.org/) to learn how to include the library and CSS. See [Getting started](https://github.com/highlightjs/highlight.js#getting-started) for different integration and module options.
+Include the `highlight.js` script package in your webpage or node app, load this module and register it with `hljs`. Follow instructions at [highlightjs](https://highlightjs.org/usage/) to learn how to include the library and CSS. See [Getting started](https://github.com/highlightjs/highlight.js#getting-started) for different integration and module options.
 
 This cURL module is not part of the standard distribution and must be loaded separately. The module name is `curl.min.js` or `curl`, depending on how you reference the module from your bundler code.
 
@@ -32,7 +32,7 @@ To build the distribution, follow instructions at [Highlight.js 3rd Party Quick 
 npm install
 ```
 
-Update `src/language/curl.js`. Be sure to update the test data `spec/input.txt` to include a test for your changes, or create a new test in `spec/curl-spec.js`. Run the local test with
+Update `src/language/curl.js`. Be sure to update the test data `spec/sample.txt` to include a test for your changes, or create a new test in `spec/curl-spec.js`. Run the local test with
 
 ```bash
 npm test

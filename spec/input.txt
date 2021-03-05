@@ -1,1 +1,0 @@
-curl -u ftpuser:ftppass --proxy-header --range 3 -H "Auth: bearer 1234" --header "Accept: ascii" -O ftp://any.domain.com/public/xss.html
