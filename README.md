@@ -32,15 +32,13 @@ To build the distribution, follow instructions at [Highlight.js 3rd Party Quick 
 npm install
 ```
 
-Update `src/language/curl.js`. Be sure to update the test data `spec/sample.txt` to include a test for your changes, or create a new test in `spec/curl-spec.js`. Run the local test with
+Update `src/language/curl.js`. Be sure to update the test data `test/markup` and `test/detect` files to include a test for your changes, or create a new test in `spec/curl-spec.js`. Run the local test with
 
 ```bash
 npm test
 ```
 
 The tests must pass!
-
-If you change the test data be sure to also sync the update with the `test/markup` and `test/detect` files. These are used by the highlight.js 3rd party language build and distribution process.
 
 Issue a pull request.
 
