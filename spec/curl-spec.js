@@ -3,9 +3,11 @@ const curl = require("../src/languages/curl");
 const fs = require("fs");
 const path = require("path");
 const languageName = "curl";
+const testFileSourcePath = "../test/markup/" + languageName + "/sample.txt";
+const testFileExpectedPath = "../test/markup/" + languageName + "/sample.expect.txt";
 hljs.registerLanguage(languageName, curl);
 
-describe("respec-highlight bundle", () => {
+describe("highlight " + languageName, () => {
   it("defines " + languageName, () => {
 
     // highlight has curl defined
@@ -17,32 +19,28 @@ describe("respec-highlight bundle", () => {
     const input = "cURL -X GET \"https://service.example.com/v.2/endpoint?q=test\""
     const expected = "<span class=\"hljs-keyword\">cURL</span> <span class=\"hljs-literal\">-X <span class=\"hljs-symbol\">GET</span></span> <span class=\"hljs-string\">&quot;https://service.example.com/v.2/endpoint?q=test&quot;</span>"
     // highlight the test string
-    const { value: result, language } = hljs.highlightAuto(input, [
-      languageName,
-    ]);
-    expect(language).toBe(languageName);
-    expect(result).toBe(expected);
+    const result = hljs.highlight(input, { language: languageName, ignoreIllegals: true });
+    expect(result.language).toBe(languageName);
+    expect(result.value).toBe(expected);
   });
 
   it("highlights " + languageName, () => {
 
     // read the test data from a file
     const sample = fs.readFileSync(
-      path.resolve(__dirname, "./sample.txt"),
+      path.resolve(__dirname, testFileSourcePath),
       "utf-8"
     );
 
     // highlight the test data
-    const { value: result, language } = hljs.highlightAuto(sample, [
-      languageName,
-    ]);
-    expect(language).toBe(languageName);
+    const result = hljs.highlight(sample, { language: languageName, ignoreIllegals: true });
+    expect(result.language).toBe(languageName);
 
     // verify the highlighting is what is expected
     const expected = fs.readFileSync(
-      path.resolve(__dirname, "./expected.txt"),
+      path.resolve(__dirname, testFileExpectedPath),
       "utf-8"
     );
-    expect(result).toBe(expected);
+    expect(result.value).toBe(expected);
   });
 });
