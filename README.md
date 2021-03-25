@@ -8,7 +8,7 @@ Include the `highlight.js` script package in your webpage or node app, load this
 
 This cURL module is not part of the standard distribution and must be loaded separately. The module name is `curl.min.js` or `curl`, depending on how you reference the module from your bundler code.
 
-Once loaded, mark the code you want to highlight with the `curl` class or `language-curl`:
+Once loaded, mark the code you want to highlight with the `language-curl`:
 
 ```html
 <pre><code class="curl">...</code></pre>
