@@ -11,7 +11,7 @@ This cURL module is not part of the standard distribution and must be loaded sep
 Once loaded, mark the code you want to highlight with the `language-curl`:
 
 ```html
-<pre><code class="curl">...</code></pre>
+<pre><code class="language-curl">...</code></pre>
 ```
 
 or
