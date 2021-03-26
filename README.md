@@ -38,7 +38,7 @@ var hljs = require('highlight.js');
 var hljsCurl = require('highlightjs-curl');
 
 hljs.registerLanguage("curl", hljsCurl);
-hljs.initHighlightingOnLoad();
+hljs.highlightAll();
 ```
 
 ## Usage
