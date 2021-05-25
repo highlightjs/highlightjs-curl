@@ -1,6 +1,6 @@
 {
   "name": "highlightjs-curl",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "author": "John Foster",
   "description": "Support for using highlight.js to syntax highlight cURL commands.",
   "main": "src/languages/curl.js",
