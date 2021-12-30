@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <title>Test highlightjs curl grammar</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.6.0/styles/default.min.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.6.0/highlight.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/styles/default.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/highlight.min.js"></script>
   <script src="../dist/curl.min.js"></script>
 </head>
 <body>
@@ -20,10 +20,10 @@
       --range 3
       -H "Auth: bearer 1234"
       --header "Accept: ascii"
-      -O ftp://any.domain.com/public/xss.html
+      -O ftp://any.domain.com/public/path-to-resource/xss.html
   </code></pre>
   <pre><code class="language-curl">
-    curl --request post -u ftpuser:ftppass --proxy-header --range 3 -H "Auth: bearer 1234" --header "Accept: ascii" -O ftp://any.domain.com/public/xss.html https://example.com/v2/endpoint.php
+    curl --request post -u ftpuser:ftppass --proxy-header --range 3 -H "Auth: bearer 1234" --header "Accept: ascii" -O ftp://any.domain.com/public/path-to-resource/xss.html https://example.com/v2/endpoint.php
   </code></pre>
 </div>
 <div>
