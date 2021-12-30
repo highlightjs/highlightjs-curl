@@ -24,7 +24,7 @@ Load the `curl` module after loading Highlight.js.  Use the minified version fou
 
 ```html
 <script type="text/javascript"
-  src="https://unpkg.com/highlightjs-curl@1.2.0/dist/curl.min.js"></script>
+  src="https://unpkg.com/highlightjs-curl@1.3.0/dist/curl.min.js"></script>
 ```
 
 - More info: <https://unpkg.com>
@@ -49,7 +49,7 @@ Once loaded, mark the code you want to highlight with the `language-curl` class:
 <pre><code class="language-curl">...</code></pre>
 ```
 
-Without specifying the language, Highlight.js will attempt to auto-detect the grammar. Since this curl grammar is an extension of bash, it may detect bash instead.
+Without specifying the language, Highlight.js will attempt to auto-detect the grammar. Since this curl grammar is an extension of bash, it may detect bash or some other grammar instead. Therefore, always specify `curl` or `language-curl`.
 
 For more information, follow instructions at [highlightjs.org](https://highlightjs.org/usage/) to learn how to include the library and CSS and other use cases. See [Getting started](https://github.com/highlightjs/highlight.js#getting-started) for different integration and module options.
 

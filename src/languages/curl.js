@@ -6,7 +6,7 @@
 */
 
 module.exports = function (hljs) {
-  var QUOTE_STRING = {
+  const QUOTE_STRING = {
     className: 'string',
     begin: /"/, end: /"/,
     contains: [
@@ -16,9 +16,10 @@ module.exports = function (hljs) {
         begin: /\$\(/, end: /\)/,
         contains: [hljs.BACKSLASH_ESCAPE]
       }
-    ]
+    ],
+    relevance: 0
   };
-  var OPTION_REQUEST = {
+  const OPTION_REQUEST = {
     className: 'literal',
     begin: /(--request|-X)\s/,
     contains: [
@@ -32,30 +33,38 @@ module.exports = function (hljs) {
     returnEnd: true,
     relevance: 10
   };
-  var OPTION = {
+  const OPTION = {
     className: 'literal',
     begin: /--/, end: /[\s"]/,
-    returnEnd: true
+    returnEnd: true,
+    relevance: 0
   };
-  var OPTION_SINGLE = {
+  const OPTION_SINGLE = {
     className: 'literal',
     begin: /-\w/, end: /[\s"]/,
-    returnEnd: true
+    returnEnd: true,
+    relevance: 0
   };
-  var ESCAPED_QUOTE = {
+  const ESCAPED_QUOTE = {
     className: 'string',
-    begin: /\\"/
+    begin: /\\"/,
+    relevance: 0
   };
-  var APOS_STRING = {
+  const APOS_STRING = {
     className: 'string',
-    begin: /'/, end: /'/
+    begin: /'/, end: /'/,
+    relevance: 0
   };
-  var NUMBER = {
+  const NUMBER = {
     className: 'number',
     variants: [
       { begin: hljs.C_NUMBER_RE }
     ],
     relevance: 0
+  };
+  // to consume paths to prevent keyword matches inside them
+  const PATH_MODE = {
+    match: /(\/[a-z._-]+)+/
   };
   
   return {
@@ -72,7 +81,8 @@ module.exports = function (hljs) {
       APOS_STRING,
       hljs.APOS_STRING_MODE,
       hljs.QUOTE_STRING_MODE,
-      NUMBER
+      NUMBER,
+      PATH_MODE
     ]
   };
 }
