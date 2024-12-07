@@ -50,6 +50,11 @@ module.exports = function (hljs) {
     begin: /\\"/,
     relevance: 0
   };
+  const ESCAPED_SINGLE_QUOTE = {
+    className: 'string',
+    begin: /\\'/,
+    relevance: 0
+  };
   const APOS_STRING = {
     className: 'string',
     begin: /'/, end: /'/,
@@ -76,11 +81,12 @@ module.exports = function (hljs) {
       OPTION_REQUEST,
       OPTION,
       OPTION_SINGLE,
-      QUOTE_STRING,
-      ESCAPED_QUOTE,
-      APOS_STRING,
       hljs.APOS_STRING_MODE,
       hljs.QUOTE_STRING_MODE,
+      QUOTE_STRING,
+      ESCAPED_QUOTE,
+      ESCAPED_SINGLE_QUOTE,
+      APOS_STRING,
       NUMBER,
       PATH_MODE
     ]
