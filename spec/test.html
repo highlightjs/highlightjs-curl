@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <title>Test highlightjs curl grammar</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/styles/default.min.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/highlight.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.10.0/styles/default.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.10.0/highlight.min.js"></script>
   <script src="../dist/curl.min.js"></script>
 </head>
 <body>
@@ -12,6 +12,7 @@
 <p>Test highlightjs cURL grammar in browser:</p>
 <div>
   <h3>Code block</h3>
+  <p>Verify multi-line parse with cURL language specified</p>
   <pre><code class="language-curl">
     curl
       -X GET
@@ -19,7 +20,9 @@
       --proxy-header
       --range 3
       -H "Auth: bearer 1234"
+      -H 'Content-Type: application/json'
       --header "Accept: ascii"
+      --header 'x-option-request: \'abc\''
       -O ftp://any.domain.com/public/path-to-resource/xss.html
   </code></pre>
   <pre><code class="language-curl">
@@ -28,6 +31,7 @@
 </div>
 <div>
   <h3>Plain text</h3>
+  <p>Verify multi-line parse with plaintext markup</p>
   <pre><code class="plaintext">
     curl
       -X GET
@@ -35,13 +39,37 @@
       --proxy-header
       --range 3
       -H "Auth: bearer 1234"
+      -H 'Content-Type: application/json'
       --header "Accept: ascii"
+      --header 'x-option-request: \'abc\''
       -O ftp://any.domain.com/public/xss.html
   </code></pre>
 </div>
-<script type="text/javascript">
+<div>
+  <h3>Code block</h3>
+  <p>Single line parse</p>
+  <pre><code class="language-curl">
+    curl -X POST -u ftpuser:ftppass --proxy-header --range 3 -H "Auth: bearer 1234" -H 'Content-Type: application/json' -H 'key: <redacted>' --header "Accept: ascii" --header 'x-option-request: \'abc\'' -O ftp://any.domain.com/public/path-to-resource/xss.html
+  </code></pre>
+</div>
+<div>
+  <h3>Code block</h3>
+  <p>Verify multi-line parse</p>
+  <pre><code class="language-curl">
+    curl -X POST -H 'Content-Type: application/json' -H 'key: <redacted>' --data '{
+      "instance": "{\n  \"conversation_id\": \"sambaverse-conversation-id\",\n  \"messages\": [\n    {\n      \"message_id\": 0,\n      \"role\": \"user\",\n      \"content\": \"write a letter\"\n    },\n    {\n      \"message_id\": 1,\n      \"role\": \"assistant\",\n      \"content\": \"to a friend about a problem? ANSWER: How to Make a Letter to a Friend About a Problem\"\n    },\n    {\n      \"message_id\": 2,\n      \"role\": \"user\",\n      \"content\": \"write a letterto a friend about a problem\'? ANSWER: How to Make a Letter to a Friend About a Problem\"\n    }\n  ]\n}",
+      "params": {
+        "do_sample": {
+          "type": "bool",
+          "value": "false"
+        },
+      }
+    }' --header 'x-option-request: \'abc\'' --other parameter 'http://localhost:3000/api/predict/generic/76ee2921-c54e-4988-9464-064a4face27e/200426b8-fb57-4535-9110-f68e923dba1b'    
+  </code></pre>
+</div>
+
+<script>
   hljs.highlightAll();
 </script>
 </body>
 </html>
-
