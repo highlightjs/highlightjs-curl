@@ -55,7 +55,7 @@ For more information, follow instructions at [highlightjs.org](https://highlight
 
 ## Contributing
 
-[Contributions welcome](https://github.com/esri/contributing). Download this repo and install the dependencies:
+[Contributions welcome](./CONTRIBUTING.md). Download this repo and install the dependencies:
 
 ```bash
 npm install
